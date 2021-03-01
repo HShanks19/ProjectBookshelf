@@ -19,14 +19,16 @@ public class Book {
 	private String genre;
 	
 	private int yearReleased;
-	
-	
-	public Book(String title, String author, String genre, int yearReleased) {
+
+	private Status status;
+		
+	public Book(String title, String author, String genre, int yearReleased, Status status) {
 		super();
 		this.title = title;
 		this.author = author;
 		this.genre = genre;
 		this.yearReleased = yearReleased;
+		this.status = status;
 		
 	}
 
@@ -70,6 +72,13 @@ public class Book {
 
 	public void setYearReleased(int yearReleased) {
 		this.yearReleased = yearReleased;
+	}
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
 

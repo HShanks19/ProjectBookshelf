@@ -3,6 +3,7 @@ package com.qa.bookshelf.service;
 import java.util.List;
 
 import com.qa.bookshelf.domain.Book;
+import com.qa.bookshelf.domain.Status;
 
 public interface BookService {
 
@@ -15,5 +16,19 @@ public interface BookService {
 	boolean removeBook(long id);
 	
 	Book updateBook(long id, Book book);
+	
+	Book getBookByTitle(String title);
+	
+	List<Book> getBooksByGenre(String genre);
+	
+	List<Book> getBooksByAuthor(String author);
+	
+	List<Book> getBooksByYearReleased (int x);
+	
+	List<Book> getBooksByStatus (Status status);
+	
+	Book startReadingBook(long id);
+	
+	Book finishReadingBook(long id);
 
 }
