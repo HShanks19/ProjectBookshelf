@@ -40,7 +40,7 @@ public class BookController {
 		return this.service.getBookById(id);
 	}
 
-	@DeleteMapping("/removeChicken/{id}")
+	@DeleteMapping("/removeBook/{id}")
 	public boolean removeBook(@PathVariable long id) {
 		return this.service.removeBook(id);
 	}
@@ -49,5 +49,31 @@ public class BookController {
     public Book updateBook(@PathVariable long id, @RequestBody Book book) {
         return this.service.updateBook(id, book);
     }
+	
+	@GetMapping("/getBook/{genre}")
+	public List<Book> getBookByGenre(@PathVariable String genre) {
+		return this.service.getBooksByGenre(genre);
+	}
+	
+	@GetMapping("/getBook/{author}")
+	public List<Book> getBookByAuthor(@PathVariable String author) {
+		return this.service.getBooksByAuthor(author);
+	}
+	
+	@GetMapping("/getBook/{yearReleased}")
+	public List<Book> getBookByYearReleased(@PathVariable int x) {
+		return this.service.getBooksByYearReleased(x);
+	}
+	
+	@PutMapping("/startBook/{id}")
+    public Book startReadingBook(@PathVariable long id) {
+        return this.service.startReadingBook(id);
+    }
+	@PutMapping("/finishBook/{id}")
+    public Book finishReadingBook(@PathVariable long id) {
+        return this.service.finishReadingBook(id);
+    }
+
+	
 
 }
