@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import com.qa.bookshelf.Books.domain.Status;
 import com.qa.bookshelf.Books.service.BookService;
 
 @RestController
+@CrossOrigin
 public class BookController {
 
 	private BookService service;
@@ -36,8 +38,14 @@ public class BookController {
 		return ResponseEntity.ok(this.service.getBook());
 	}
 
-	@GetMapping("/getBook/{id}")
+	@GetMapping("/getBookID/{id}")
 	public ResponseEntity<Book> getBookById(@PathVariable long id) {
+		return ResponseEntity.ok(this.service.getBookById(id));
+	}
+	
+	//pointless get rid
+	@GetMapping("/getBookTitle/{id}")
+	public ResponseEntity<Book> getBookByTitle(@PathVariable long id) {
 		return ResponseEntity.ok(this.service.getBookById(id));
 	}
 
@@ -52,20 +60,6 @@ public class BookController {
         return new ResponseEntity<>(this.service.updateBook(id, book), HttpStatus.ACCEPTED);
     }
 	
-	@GetMapping("/getBook/{genre}")
-	public ResponseEntity<List<Book>> getBookByGenre(@PathVariable String genre) {
-		return ResponseEntity.ok(this.service.getBooksByGenre(genre));
-	}
-	
-	@GetMapping("/getBook/{author}")
-	public ResponseEntity<List<Book>> getBookByAuthor(@PathVariable String author) {
-		return ResponseEntity.ok(this.service.getBooksByAuthor(author));
-	}
-	
-	@GetMapping("/getBook/{yearReleased}")
-	public ResponseEntity<List<Book>> getBookByYearReleased(@PathVariable int x) {
-		return ResponseEntity.ok(this.service.getBooksByYearReleased(x));
-	}
 	
 	@PutMapping("/startBook/{id}")
     public Book startReadingBook(@PathVariable long id) {
@@ -77,15 +71,15 @@ public class BookController {
         return this.service.finishReadingBook(id);
     }
 	
-	@GetMapping("/getBook/{status}")
-	public List<Book> getBooksByStatus(@PathVariable Status status) {
-		if (status == Status.TOREAD) {
+	@GetMapping("/getBookStatus/{status}")
+	public List<Book> getBooksByStatus(@PathVariable String status) {
+		if (status.contains("TOREAD")){
 			return this.service.getBooksByStatus(Status.TOREAD);
-		} else if  (status == Status.READING) {
+		} else if  (status.contains("READING")){
 			return this.service.getBooksByStatus(Status.READING);
-		} else {
+		} else  {
 			return this.service.getBooksByStatus(Status.READ);
-		}
+		} 
 	}
 	
 }
