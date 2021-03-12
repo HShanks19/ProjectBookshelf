@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToReadBookshelf</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="file.css">
+</head>
+<body>
+    <Section class= Heading>
+                <h1>OrganiseMyBookShelf</h1>
+                <h2>Monitor your physical and online bookshelf</h2>
+    </Section>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="#">Navbar</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarNav">
+	      <ul class="navbar-nav">
+	        <li class="nav-item">
+	          <a class="nav-link" href="Index.html">Home</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="toRead.html">Books to Read</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="reading.html">Currently Reading</a>
+	        </li>
+			<li class="nav-item">
+	          <a class="nav-link" href="read.html">Read Books</a>
+	        </li>
+			<li class="nav-item">
+	          <a class="nav-link" href="allreviews.html">My Reviews</a>
+	        </li>
+			<li class="nav-item">
+	          <a class="nav-link" href="addnewbook.html">Add New Book</a>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+    <article>
+        <header class = HelloFriends>
+            <h3> Here is your to Read bookshelf</h3>
+            <p> This bookshelf will allow you to add books you want to read and view all the books you have decided you want to read. <Br> Here you can decide which book to read next so that you will never run out of books to keep exploring. <Br> Enjoy browsing your to Read Bookshelf</p>
+        </header>
+        <div class = "subheading">
+            <h3>Bookshelf</h3>
+            <h6 id = "status">TOREAD</h6>
+        </div>
+        <div id="output" class="m-4 card-group row row-cols-3 g-3">
+        </div>
+	    <div class="modal" id="needToMatch">
+	        <div class="modal-dialog">
+	            <div class="modal-content">
+	                <div class="modal-header">
+	                    <h2 class="modal-title">Update Form</h2>
+	                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+	                </div>
+	                <div class="modal-content">
+	                    <form id="updateBooks">
+	            			<div class="row">
+	                			<div class="col-12">
+	                    			<label for="booktitle">Title</label>
+	                    			<input type="text" name="title" id="updateTitle" class="form-control">
+	                			</div>
+	            			</div>
+	            			<div class = "row">
+	                			<div class="col-12">
+	                    			<label for="author">Author</label>
+	                    			<input type="text" name="author" id="updateAuthor" class="form-control">
+	                			</div>
+	            			</div>
+				            <div class="row">
+				                <div class="col-6">
+				                    <label for="Genre">Genre</label>
+				                    <select class="bookInput" id="updateBookGenreSelect" name = "updateBookGenreSelect" >
+				                        <option value = "Fiction">Fiction</option>
+				                        <option value = "Non-Fiction">Non-Fiction</option>
+				                        <option value = "Fantasy">Fantasy</option>
+				                        <option value = "Science-Fiction">Science-Fiction</option>
+				                        <option value = "Adventure">Adventure</option>
+				                        <option value = "Romance">Romance</option>
+				                        <option value = "Horror">Horror</option>
+				                        <option value = "Thriller">Thriller</option>
+				                    </select>
+				                </div>
+				                <div class="col-6">
+				                    <label for="yearReleased">Year Released</label>
+				                    <input type= "year" name="yearReleased" id="updateYearReleased" class="form-control">
+				                </div>
+	            			</div>
+				            <div class="row">
+				                <div class="col-6">
+				                    <label for="shelf">Bookshelf</label>
+				                    <div class="col-sm-10" id = "updateCircleOptions">
+				                        <div class="form-check">
+					                          <input class="form-check-input" type="radio" name="bookshelfOption" id="gridShelves1" value="TOREAD" checked>
+					                          <label class="form-check-label" for="gridShelves1">
+					                            To Read
+					                          </label>
+				                        </div>
+				                        <div class="form-check">
+				                          <input class="form-check-input" type="radio" name="bookshelfOption" id="gridShelves2" value="READING">
+				                          <label class="form-check-label" for="gridShelves2">
+				                            Reading
+				                          </label>
+				                        </div>
+				                        <div class="form-check disabled">
+				                          <input class="form-check-input" type="radio" name="bookshelfOption" id="gridShelves3" value="READ">
+				                          <label class="form-check-label" for="gridShelves3">
+				                            Read
+				                          </label>
+				                        </div>
+	                      			</div>
+	                			</div>
+			                	<div class="container col-6">
+			                    <div class="center">
+			                        <button type="submit" class="btn btn-primary" id = "submitUpdate">Submit</button>
+			                    </div>
+	                  		</div>
+	            		</div> 
+	        		</form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </article>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="starting.js"></script>
+    <footer>
+        <p class = quote>
+            <b>Never trust anyone who has not brought a book with them.” </b> <Br> ― Lemony Snicket
+        </p>
+    </footer>
+</html>

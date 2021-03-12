@@ -82,7 +82,7 @@ public class ReviewServiceDBUnitTest {
 		
 		Review newReview = new Review(id,"Good", 5, "Good Book", 1);
 		Review savedReview = new Review(1L,"Good", 5, "Good Book", 1);
-		
+
 		//WHEN
 		Mockito.when(this.repo.save(newReview)).thenReturn(savedReview);
 		Mockito.when(this.repo.existsById(id)).thenReturn(true);

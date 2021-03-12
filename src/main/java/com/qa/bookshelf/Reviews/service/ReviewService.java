@@ -8,13 +8,13 @@ public interface ReviewService {
 
 	Review createReview(Review review);
 
-	List<Review> getReview();
-
 	Review getReviewById(long id);
 
 	boolean removeReview(long id);
 	
 	Review updateReview(long id, Review review);
+
+	List<Review> getReview();
 
 //	Review createReviewFromInputId(long id, Review review);
 

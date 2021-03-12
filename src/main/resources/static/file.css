@@ -1,0 +1,124 @@
+body{
+    background-color: rgb(191, 203, 169);
+
+}
+.Heading {
+    background-color:rgb(136, 60, 64);
+    color: white;
+    width: 100%;
+    text-align: centre;
+    padding: 20px ;
+}
+
+.navbar {
+    padding-left: 10px ;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.Introduction {
+    color: rgb(64, 28, 30);
+    text-align: left;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight: bold;
+	display: inline-block;
+    background-color: rgb(191, 203, 169);
+}
+
+* {
+    font-family: Tratello;
+
+}
+
+.quote {
+    color: rgba(15, 0, 7, 0.945);
+    text-align:center;
+    font-weight: bolder;
+    background: #f9f9f9 url(old-paper-texture-vector.jpg) ;
+    border: 10px solid rgb(69, 31, 33);
+    border-radius: 4px;
+    }
+
+h1 {
+    font-weight:bolder;
+}
+
+.HomeButton{
+    width: 100%;
+}
+
+.HelloFriends{
+    color: #733236;
+    text-align: left;
+    padding: 20px;
+    font-weight: bolder;
+    display: inline-block;
+    width: 100%;
+    font-size: larger;
+}
+
+.subheading{
+    color: rgb(191, 203, 169);
+    text-align: left;
+    padding: 20px;
+    font-weight: bolder;
+    border: 2px solid #733236;
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 0px;
+    background-color: rgb(136, 60, 64);
+    }
+
+select {
+    width: 100%;
+    padding:10px;
+    border-radius:10px;
+    margin-top:10px;
+}
+
+.top-buffer { margin-top:20px; }
+
+.container {
+    height: 110px;
+    position: relative;
+}
+  
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.card {
+    transition: 0.3s;
+    border-radius: 5px; 
+    padding: 10px;
+    color: rgba(15, 0, 7, 0.945);
+    text-align:center;
+    font-weight: bolder;
+    background: #f9f9f9 url(old-paper-texture-vector.jpg) ;
+    border: 5px solid rgb(69, 31, 33);
+    border-radius: 4px;
+    }
+
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+
