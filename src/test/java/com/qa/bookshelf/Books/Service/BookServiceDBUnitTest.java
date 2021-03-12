@@ -59,6 +59,7 @@ public class BookServiceDBUnitTest {
 		
 		assertThat(this.service.updateBook(updateId, newBook)).isEqualTo(updatedBook);
 	}
+	
 	@Test
 	void testRead() {
 		Book newBook = new Book(1L,"newTitle", "newAuthor", "newGenre", 2010, Status.READ);

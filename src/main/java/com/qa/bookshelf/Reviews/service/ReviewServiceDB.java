@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.qa.bookshelf.Reviews.domain.Review;
+import com.qa.bookshelf.Reviews.exceptions.ReviewNotFoundException;
 import com.qa.bookshelf.Reviews.repos.ReviewRepo;
 
 @Service
@@ -30,6 +31,9 @@ public class ReviewServiceDB implements ReviewService{
 
 	@Override
 	public Review getReviewById(long id) {
+		if (!this.repo.existsById(id)) {
+			throw new ReviewNotFoundException();
+		}
 		Optional<Review> existingOptional = this.repo.findById(id);
 		Review existing = existingOptional.get();
 		return existing;
@@ -38,13 +42,18 @@ public class ReviewServiceDB implements ReviewService{
 
 	@Override
 	public boolean removeReview(long id) {
+		if (!this.repo.existsById(id)) {
+			throw new ReviewNotFoundException();
+		}
 		this.repo.deleteById(id);
-        boolean exists = this.repo.existsById(id);
-        return !exists;
+		return !this.repo.existsById(id);
 	}
+	
+	
 
 	@Override
 	public Review updateReview(long id, Review review) {
+		//no error handling as error would already be thrown in getReviewById
 		Review existing = this.getReviewById(id);
 		existing.setReviewTitle(review.getReviewTitle());
 		existing.setRating(review.getRating());
