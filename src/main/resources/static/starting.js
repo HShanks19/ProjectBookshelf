@@ -69,7 +69,7 @@ function renderBook(book) {
     newBook.appendChild(bookFooter);
 
     const deleteBookButton = document.createElement("button");
-    deleteBookButton.className = "card-link";
+    deleteBookButton.className = "w3-bar-item w3-button";
     deleteBookButton.innerText = "Delete";
     deleteBookButton.addEventListener('click', function () {
         deleteBook(book.id);
@@ -78,7 +78,7 @@ function renderBook(book) {
     bookFooter.appendChild(deleteBookButton);
 
     const updateBookButton = document.createElement("button");
-    updateBookButton.className = "card-link";
+    updateBookButton.className = "w3-bar-item w3-button";
     updateBookButton.innerText = "Update";
 	updateBookButton.addEventListener('click', function (){
 		openModal(book.id);
@@ -87,7 +87,7 @@ function renderBook(book) {
     bookFooter.appendChild(updateBookButton);
 	
 	const changeBookButton = document.createElement("button");
-	changeBookButton.className = "card-link";
+	changeBookButton.className = "w3-bar-item w3-button";
 	if (book.status == "TOREAD"){
 		changeBookButton.innerText = "Start Book";
 		changeBookButton.addEventListener('click', function () {
