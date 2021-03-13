@@ -39,9 +39,9 @@ I also set out to push myself with this project by adding the ability to a revie
 
 I created a JIRA board to track my progress through the project and to make sure I remembered to complete all the tasks i had set myself. I set epics covering the main areas of development and testing. I also created user stories and subtasks to keep track of the tasks I had left to do. 
 
-My JIRA board can be found here. [ADD LINK] and examples of the board can be viewed below along with an example of a User Story.
+My JIRA board can be found [here] [JIRALink]. and examples of the board can be viewed below along with an example of a User Story.
 
-[ADD PICTURES OF JIRA]
+![JIRAPHOTO]
 
 ### 3. Database and mySQL structure.
 
@@ -128,3 +128,5 @@ GitHub (Front-End Included in this repo):
 ### 9. Acknowledgements
 
 I would like to acknowledge the QA trainers for all their help on this project. I would also like to thank Team 1 for all their support over the past 5 weeks.
+
+[JIRALink]: https://qarestaurant.atlassian.net/secure/RapidBoard.jspa?rapidView=6&projectKey=PROJ&selectedIssue=PROJ-8
