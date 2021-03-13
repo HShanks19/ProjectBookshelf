@@ -119,6 +119,19 @@ select {
   transform: translate(-50%, -50%);
 }
 
+a:link {
+	color: purple;
+  	text-decoration: none;
+}
+
+a:visited {
+	color: rgb(64, 0, 0);
+  	text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
 
 
 
