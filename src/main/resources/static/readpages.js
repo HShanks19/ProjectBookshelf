@@ -152,13 +152,7 @@ function openModal(id){
 			bookUpdateYearReleased = bookUpdate.yearReleased;
 			bookUpdateStatus = bookUpdate.status;
 			bookUpdateId = bookUpdate.id;
-			var radioElements = document.getElementsByName("bookshelfOption");
-
-		    for (var i=0; i<radioElements.length; i++) {
-		      if (radioElements[i].getAttribute('value') == 'bookUpdateStatus') {
-		        radioElements[i].checked = true;
-		      }
-		    }
+			
 			console.log(bookUpdate);
 			console.log(bookUpdateTitle);
 			console.log(bookUpdateAuthor);
@@ -166,10 +160,20 @@ function openModal(id){
 			console.log(bookUpdateYearReleased);
 			console.log(bookUpdateStatus);
 			console.log(bookUpdateId);
+			
 			document.getElementById('updateTitle').value = bookUpdateTitle;
     		document.getElementById('updateAuthor').value = bookUpdateAuthor;
 			document.getElementById("updateBookGenreSelect").value= bookUpdateGenre;
     		document.getElementById('updateYearReleased').value = bookUpdateYearReleased;
+			var radioElements = document.getElementsByName("bookshelfOption");
+
+		    for (var i=0; i<radioElements.length; i++) {
+			let value = radioElements[i].getAttribute('value');
+		    if (value == bName) {
+				radioElements[i].checked = true;
+		     }
+		    }
+
         }).catch(err => console.error(err))
 }
 
@@ -187,6 +191,7 @@ document.getElementById("updateBooks").addEventListener('submit', function (even
     axios.put("http://localhost:8080/updateBook/" + bookUpdateId, updateData)
         .then(() => {
             myModal.hide();
+			getBooks();
     }).catch(err => console.error(err));
 });
 

@@ -33,8 +33,9 @@ getReviews();
 //delete review
 function deleteReview(id) {
     axios.delete("http://localhost:8080/removeReview/" + id)
-      .then(() => getReviews())
-      .catch(err => console.error(err));
+      .then(() => 
+			location.reload()
+			).catch(err => console.error(err));
 }
 
 //get Book Title
@@ -47,7 +48,7 @@ function getReviewCardTitle(review){
 			reviewBookTitle = bookReviewed.title;
 			
 			console.log(reviewBookTitle);
-					
+			
 		    const newReview = document.createElement("div");
 		    newReview.className = "card m-5";
 		    newColumn.appendChild(newReview);
@@ -144,6 +145,7 @@ document.getElementById("review").addEventListener('submit', function (event) {
     axios.put("http://localhost:8080/updateReview/" + reviewId, reviewData)
         .then(() => {
 			myUpdateReviewModal.hide();
-			getReviews();  
+			//getReviews(); 
+			location.reload(); 
     }).catch(err => console.error(err));
 });
