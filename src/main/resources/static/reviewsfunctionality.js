@@ -11,10 +11,12 @@ let reviewBookTitle = "";
 let reviewId = 0;
 const newColumn = document.createElement("div");
 newColumn.className = "col";
+let port = 8080;
+const contextPath = "http://localhost:" + port + "/";
 
 //read functionality
 function getReviews() {
-    axios.get("http://localhost:8080/getReview")
+    axios.get(contextPath + "getReview")
         .then(res => {
             output.innerHTML = "";
 
@@ -32,7 +34,7 @@ getReviews();
 
 //delete review
 function deleteReview(id) {
-    axios.delete("http://localhost:8080/removeReview/" + id)
+    axios.delete(contextPath + "removeReview/" + id)
       .then(() => 
 			location.reload()
 			).catch(err => console.error(err));
@@ -41,7 +43,7 @@ function deleteReview(id) {
 //get Book Title
 function getReviewCardTitle(review){
 	
-	axios.get("http://localhost:8080/getBookID/"+ review.bookId)
+	axios.get(contextPath + "getBookID/"+ review.bookId)
         .then(res => {
 			const bookReviewed = res.data;
 			
@@ -103,7 +105,7 @@ function getReviewCardTitle(review){
 function openUpdateReviewModal(id){
 	myUpdateReviewModal.show();
 	
-	axios.get("http://localhost:8080/getReview/"+ id)
+	axios.get(contextPath + "getReview/"+ id)
         .then(res => {
 			const reviewUpdate = res.data;
 			
@@ -142,7 +144,7 @@ document.getElementById("review").addEventListener('submit', function (event) {
   	
 	console.log(reviewData);
 
-    axios.put("http://localhost:8080/updateReview/" + reviewId, reviewData)
+    axios.put(contextPath + "updateReview/" + reviewId, reviewData)
         .then(() => {
 			myUpdateReviewModal.hide();
 			//getReviews(); 
