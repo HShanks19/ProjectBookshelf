@@ -2,6 +2,8 @@
 var selectDrop = document.getElementById("bookGenreSelect");
 var selectCirle = document.getElementById("circleOptions");
 var myModal = new bootstrap.Modal(document.getElementById('addedBook'));
+let port = 8080;
+const contextPath = "http://localhost:" + port + "/";
 
 //create functionality
 document.getElementById("addBooks").addEventListener('submit', function (event) {
@@ -15,7 +17,7 @@ document.getElementById("addBooks").addEventListener('submit', function (event) 
       status: document.querySelector('input[name="bookshelfOption"]:checked').value
     };
   
-    axios.post("http://localhost:8080/createBook", data)
+    axios.post(contextPath + "createBook", data)
         .then(() => {
 			openModal();
             //this.reset();

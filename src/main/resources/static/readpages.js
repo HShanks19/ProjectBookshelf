@@ -19,11 +19,13 @@ var selectDrop = document.getElementById("updateBookGenreSelect");
 let selectCirle = document.getElementById("updateCircleOptions");
 var selectDropReview = document.getElementById("ratingSelect");
 var myReviewModal = new bootstrap.Modal(document.getElementById('reviewCapability'));
+let port = 8080;
+const contextPath = "http://localhost:" + port + "/";
 
 
 //read Functionality
 function getBooks() {
-    axios.get("http://localhost:8080/getBookStatus/" + bookshelfname)
+    axios.get(contextPath + "getBookStatus/" + bookshelfname)
         .then(res => {
             output.innerHTML = "";
 
@@ -120,21 +122,21 @@ getBooks();
 
 //delete functionality
 function deleteBook(id) {
-    axios.delete("http://localhost:8080/removeBook/" + id)
+    axios.delete(contextPath + "removeBook/" + id)
       .then(() => getBooks())
       .catch(err => console.error(err));
 }
 
 //startBook
 function startBook(id){		
-	axios.put("http://localhost:8080/startBook/" + id)
+	axios.put(contextPath + "startBook/" + id)
       .then(() => getBooks())
       .catch(err => console.error(err));
 }
 
 //finishBook
 function finishBook(id){		
-	axios.put("http://localhost:8080/finishBook/" + id)
+	axios.put( contextPath + "finishBook/" + id)
       .then(() => getBooks())
       .catch(err => console.error(err));
 }
@@ -143,7 +145,7 @@ function finishBook(id){
 //update Functionality
 function openModal(id){
 	myModal.show();
-	axios.get("http://localhost:8080/getBookID/"+ id)
+	axios.get(contextPath + "getBookID/"+ id)
         .then(res => {
 			const bookUpdate = res.data;
 			bookUpdateTitle = bookUpdate.title;
@@ -188,7 +190,7 @@ document.getElementById("updateBooks").addEventListener('submit', function (even
       status: document.querySelector('input[name="bookshelfOption"]:checked').value
     };
   
-    axios.put("http://localhost:8080/updateBook/" + bookUpdateId, updateData)
+    axios.put(contextPath + "updateBook/" + bookUpdateId, updateData)
         .then(() => {
             myModal.hide();
 			getBooks();
@@ -198,7 +200,7 @@ document.getElementById("updateBooks").addEventListener('submit', function (even
 //review Book functionality
 function openMyReviewModal(id){
 	myReviewModal.show();
-	axios.get("http://localhost:8080/getBookID/"+ id)
+	axios.get(contextPath + "getBookID/"+ id)
         .then(res => {
 			const bookReviewData = res.data;
 			bookReviewTitle = bookReviewData.title;
@@ -224,7 +226,7 @@ document.getElementById("review").addEventListener('submit', function (event) {
   	
 	console.log(reviewData);
 
-    axios.post("http://localhost:8080/createReview", reviewData)
+    axios.post(contextPath + "createReview", reviewData)
         .then(() => {
             window.location.href = 'http://localhost:8080/allreviews.html';    
     }).catch(err => console.error(err));
