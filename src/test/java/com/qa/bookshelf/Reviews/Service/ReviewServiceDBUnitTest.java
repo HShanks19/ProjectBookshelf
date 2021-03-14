@@ -90,7 +90,7 @@ public class ReviewServiceDBUnitTest {
 		assertThat(this.service.removeReview(id)).isFalse();
 		
 		Mockito.verify(this.repo, Mockito.times(1)).deleteById(id);
-		Mockito.verify(this.repo, Mockito.times(1)).existsById(id);
+		Mockito.verify(this.repo, Mockito.times(2)).existsById(id);
 		
 	}
 }
