@@ -4,8 +4,6 @@ const output = document.getElementById("output");
 const bookshelfName = document.getElementById("status");
 const bName = bookshelfName.innerText;
 let bookshelfname=  "\"" + bName + "\"";
-console.log(bookshelfname);
-console.log("http://localhost:8080/getBookStatus/" + bookshelfname);
 var myModal = new bootstrap.Modal(document.getElementById('needToMatch')); 
 let bookUpdateTitle = "";
 let bookUpdateAuthor = "";
@@ -15,12 +13,10 @@ let bookUpdateStatus = "";
 let bookUpdateId = 0;
 var selectDrop = document.getElementById("updateBookGenreSelect");
 let selectCirle = document.getElementById("updateCircleOptions");
-let port = 8080;
-const contextPath = "http://localhost:" + port + "/";
 
 //read Functionality
 function getBooks() {
-    axios.get(contextPath + "getBookStatus/" + bookshelfname)
+    axios.get("/getBookStatus/" + bookshelfname)
         .then(res => {
             output.innerHTML = "";
 
@@ -117,21 +113,21 @@ getBooks();
 
 //delete functionality
 function deleteBook(id) {
-    axios.delete(contextPath + "removeBook/" + id)
+    axios.delete("/removeBook/" + id)
       .then(() => getBooks())
       .catch(err => console.error(err));
 }
 
 //startBook
 function startBook(id){		
-	axios.put(contextPath + "startBook/" + id)
+	axios.put("/startBook/" + id)
       .then(() => getBooks())
       .catch(err => console.error(err));
 }
 
 //finishBook
 function finishBook(id){		
-	axios.put(contextPath + "finishBook/" + id)
+	axios.put("/finishBook/" + id)
       .then(() => getBooks())
       .catch(err => console.error(err));
 }
@@ -140,7 +136,7 @@ function finishBook(id){
 //update Functionality
 function openModal(id){
 	myModal.show();
-	axios.get(contextPath + "getBookID/"+ id)
+	axios.get("/getBookID/"+ id)
         .then(res => {
 			const bookUpdate = res.data;
 			bookUpdateTitle = bookUpdate.title;
@@ -149,15 +145,7 @@ function openModal(id){
 			bookUpdateYearReleased = bookUpdate.yearReleased;
 			bookUpdateStatus = bookUpdate.status;
 			bookUpdateId = bookUpdate.id;
-			
-			console.log(bookUpdate);
-			console.log(bookUpdateTitle);
-			console.log(bookUpdateAuthor);
-			console.log(bookUpdateGenre);
-			console.log(bookUpdateYearReleased);
-			console.log(bookUpdateStatus);
-			console.log(bookUpdateId);
-			
+						
 			document.getElementById('updateTitle').value = bookUpdateTitle;
     		document.getElementById('updateAuthor').value = bookUpdateAuthor;
 			document.getElementById("updateBookGenreSelect").value= bookUpdateGenre;
@@ -184,8 +172,11 @@ document.getElementById("updateBooks").addEventListener('submit', function (even
       yearReleased: this.yearReleased.value,
       status: document.querySelector('input[name="bookshelfOption"]:checked').value
     };
+
+	console.log(updateData);
+	console.log(bookUpdateId);
   
-    axios.put(contextPath + "updateBook/" + bookUpdateId, updateData)
+    axios.put("/updateBook/" + bookUpdateId , updateData)
         .then(() => {
             myModal.hide();
 			getBooks();

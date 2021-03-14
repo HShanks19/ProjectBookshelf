@@ -21,9 +21,6 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 
-
-//I am aware this is wrong but these tests only work if the app is already running in with test-profile active
-
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @Sql(scripts = {"classpath:schema.sql", "classpath:data.sql"}, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
 @ActiveProfiles("test")
@@ -72,13 +69,27 @@ public class SeleniumTests {
 
 		toShelf.click();
 
-		WebElement book3Header = explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/article/div[2]/div/div/div[1]/h5")));
+		WebElement book3Header = explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/article/div[2]/div[2]/div/div[1]/h5")));
 		
 		Assertions.assertTrue(book3Header.getText().contains("SeleniumTestTitle"));
 		
 	}
 	
-
+	
+	// create and read review
+	
+	//@Test
+	//void testReviewBook() {
+		
+	//	WebDriverWait explicitWait = new WebDriverWait(driver, 5);
+		
+	//	this.driver.get("http://localhost:" + port + "/toread.html");
+		
+	//	WebElement startBook = this.driver.findElement(By.xpath("//*[@id=\"output\"]/div[2]/div/div[2]/button[3]"));
+		
+	//	startBook.sendKeys(Keys.ENTER);
+	//}
+	
 	//@AfterEach
 	//void teardown() {
 	//	driver.quit();
