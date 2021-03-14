@@ -69,40 +69,15 @@ public class SeleniumTests {
 
 		toShelf.click();
 
-<<<<<<< HEAD
-		WebElement book3Header = explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/article/div[2]/div[2]/div/div[1]/h5")));
-=======
+
 		WebElement book2Header = explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/article/div[2]/div[2]/div/div[1]/h5")));
->>>>>>> Proofreading
 		
 		Assertions.assertTrue(book2Header.getText().contains("SeleniumTestTitle"));
 		
 	}
 	
-<<<<<<< HEAD
-	
-	// create and read review
-	
-	//@Test
-	//void testReviewBook() {
-		
-	//	WebDriverWait explicitWait = new WebDriverWait(driver, 5);
-		
-	//	this.driver.get("http://localhost:" + port + "/toread.html");
-		
-	//	WebElement startBook = this.driver.findElement(By.xpath("//*[@id=\"output\"]/div[2]/div/div[2]/button[3]"));
-		
-	//	startBook.sendKeys(Keys.ENTER);
-	//}
-	
-	//@AfterEach
-	//void teardown() {
-	//	driver.quit();
-	//}
-=======
 	@AfterEach
 	void teardown() {
 		driver.quit();
 	}
->>>>>>> Proofreading
 }
