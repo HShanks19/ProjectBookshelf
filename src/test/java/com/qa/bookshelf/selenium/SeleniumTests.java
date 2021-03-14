@@ -72,15 +72,14 @@ public class SeleniumTests {
 
 		toShelf.click();
 
-		WebElement book3Header = explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/article/div[2]/div/div/div[1]/h5")));
+		WebElement book2Header = explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/article/div[2]/div[2]/div/div[1]/h5")));
 		
-		Assertions.assertTrue(book3Header.getText().contains("SeleniumTestTitle"));
+		Assertions.assertTrue(book2Header.getText().contains("SeleniumTestTitle"));
 		
 	}
 	
-
-	//@AfterEach
-	//void teardown() {
-	//	driver.quit();
-	//}
+	@AfterEach
+	void teardown() {
+		driver.quit();
+	}
 }
