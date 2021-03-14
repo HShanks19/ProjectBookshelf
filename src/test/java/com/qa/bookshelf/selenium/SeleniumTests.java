@@ -69,12 +69,17 @@ public class SeleniumTests {
 
 		toShelf.click();
 
+<<<<<<< HEAD
 		WebElement book3Header = explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/article/div[2]/div[2]/div/div[1]/h5")));
+=======
+		WebElement book2Header = explicitWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/article/div[2]/div[2]/div/div[1]/h5")));
+>>>>>>> Proofreading
 		
-		Assertions.assertTrue(book3Header.getText().contains("SeleniumTestTitle"));
+		Assertions.assertTrue(book2Header.getText().contains("SeleniumTestTitle"));
 		
 	}
 	
+<<<<<<< HEAD
 	
 	// create and read review
 	
@@ -94,4 +99,10 @@ public class SeleniumTests {
 	//void teardown() {
 	//	driver.quit();
 	//}
+=======
+	@AfterEach
+	void teardown() {
+		driver.quit();
+	}
+>>>>>>> Proofreading
 }
