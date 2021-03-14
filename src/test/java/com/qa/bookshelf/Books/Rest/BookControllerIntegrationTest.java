@@ -41,7 +41,7 @@ public class BookControllerIntegrationTest {
 	
 	private long id = 1L;
 	
-	private final Book testBookFromDB = new Book(this.id,"Book of Books", "Mark", "fantasy", 2020, Status.TOREAD);
+	private final Book testBookFromDB = new Book(this.id,"Book of Books", "Mark", "Fantasy", 2020, Status.TOREAD);
 	
 	@Test
 	void testCreate() throws Exception {
