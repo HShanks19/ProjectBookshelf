@@ -31,14 +31,10 @@ public class ReviewServiceDB implements ReviewService{
 
 	@Override
 	public Review getReviewById(long id) {
-		if (!this.repo.existsById(id)) {
-			throw new ReviewNotFoundException();
-		}
 		Optional<Review> existingOptional = this.repo.findById(id);
 		Review existing = existingOptional.get();
 		return existing;
 	}
-
 
 	@Override
 	public boolean removeReview(long id) {
@@ -49,11 +45,8 @@ public class ReviewServiceDB implements ReviewService{
 		return !this.repo.existsById(id);
 	}
 	
-	
-
 	@Override
 	public Review updateReview(long id, Review review) {
-		//no error handling as error would already be thrown in getReviewById
 		Review existing = this.getReviewById(id);
 		existing.setReviewTitle(review.getReviewTitle());
 		existing.setRating(review.getRating());
