@@ -41,7 +41,7 @@ I created a JIRA board to track my progress through the project and to make sure
 
 My JIRA board can be found [here][JIRALink]. and examples of the board can be viewed below along with an example of a User Story.
 
-![JIRAPHOTO](C:\Users\local_admin\Pictures\Screenshots)
+![JIRAPHOTO](C:/Users/local_admin/eclipse-workspace/Bookshelf/READMEPhotos/JiraBoard.png)
 
 ### 3. Database and mySQL structure.
 
