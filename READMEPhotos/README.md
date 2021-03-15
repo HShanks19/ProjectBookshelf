@@ -93,7 +93,7 @@ I undertook 3 forms of testing; each for a different purpose. The first two test
 
 #### Mockito Tests
 
-The Unit Tests I performed were using Mockito. This allowed me to used a Mock Repository which... In addition to this, Unity Testing was important to ensure that all the methods I had written worked independantly so that if an issue arose it would be easy to identify if it was a singular method causing the probelm.
+The Unit Tests I performed were using Mockito. This allowed me to used a Mock Repository which allowed me to check whether my logic was working in the way I expected as opposed to just working. The creation of mock objects and the lack of need for external dependencies makes this form of testing easy to perform unit tests. In addition to this, Unity Testing was important to ensure that all the methods I had written worked independantly so that if an issue arose it would be easy to identify if it was a singular method causing the probelm.
 
 #### Integration Tests
 
